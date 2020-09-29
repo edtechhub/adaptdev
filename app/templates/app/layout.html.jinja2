@@ -6,17 +6,13 @@
 
 {%- block metas %}
     {{- super() }}
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='dist/images/favicon-150.png') }}" sizes="32x32">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='dist/images/favicon-300.png') }}" sizes="192x192">
-    <link rel="apple-touch-icon" href="{{ url_for('static', filename='dist/images/favicon-300.png') }}">
-    <meta name="msapplication-TileImage" content="{{ url_for('static', filename='dist/images/favicon-300.png') }}">
 {%- endblock metas %}
 
 {% block styles %}
     {%- assets "css_styles" %}
         <link rel="stylesheet" href="{{ ASSET_URL }}">
     {%- endassets %}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Oswald:400,600&display=swap&subset=latin-ext">
 {% endblock styles %}
 
 {% block navbar %}
@@ -24,9 +20,8 @@
         <div class="container">
             {%- block navbar_brand %}
                 <div class="navbar-brand">
-                    <a class="d-block brand-title" href="{{ config.HOME_URL }}">
-                        <img width="200" title="{{ config.HOME_TITLE }}" src="{{ url_for('static', filename='dist/images/logo.png') }}" />
-                    </a>
+                    <a class="d-block brand-title" href="{{ config.HOME_URL }}">{{ config.HOME_TITLE }}</a>
+                    {% if config.HOME_SUBTITLE %}<span class="d-block brand-subtitle text-primary">{{ config.HOME_SUBTITLE }}</span>{% endif %}
                 </div>
             {%- endblock navbar_brand %}
             {%- block navbar_toggler %}
@@ -41,20 +36,11 @@
                 <div id="navbar-content" class="collapse navbar-collapse">
                     <ul class="navbar-nav justify-content-end">
                         {%- block navbar_items %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ config.HOME_URL }}">{{ _('Home') }}</a>
-                            </li>
+                            {# <li class="nav-item">
+                                <a class="nav-link" href="{{ config.ABOUT_URL }}">{{ _('About') }}</a>
+                            </li> #}
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ url_for('kerko.search') }}" aria-current="true">{{ config.NAV_TITLE }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ config.ABOUT_URL }}">{{ _('About us') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ config.BLOG_URL }}">{{ _('Blog') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ config.CONTACT_URL }}">{{ _('Join us') }}</a>
                             </li>
                         {%- endblock navbar_items %}
                     </ul>

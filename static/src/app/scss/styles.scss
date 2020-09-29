@@ -5,8 +5,8 @@
 // Full list of variables in 'assets/vendor/bootstrap/scss/_variables.scss'.
 
 $white: #fff;
-$black: #1f1e2c;
-$salmon: #ff5c00;  // Custom variable.
+$black: rgba(0, 0, 0, 0.84);
+$salmon: #33766B;  // Custom variable.
 
 $theme-colors:
 (
@@ -28,15 +28,14 @@ $container-max-widths: (
   xl: 1184px
 );
 
-$grid-gutter-width: 4rem;
-
 $border-color: #efefef;
 $border-radius: 0;
 
-$font-family-sans-serif: 'Montserrat', sans-serif;
+$font-family-sans-serif: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+$font-family-oswald: 'Oswald', "Helvetica Neue", helvetica, arial, sans-serif;  // Custom variable.
 $font-size-base: 1rem;
-$headings-font-family: $font-family-sans-serif;
-$headings-font-weight: 700;
+$headings-font-family: $font-family-oswald;
+$headings-font-weight: 600;
 
 $h1-font-size: $font-size-base * 2.125;
 $h2-font-size: $font-size-base * 1.75;
@@ -45,18 +44,17 @@ $h4-font-size: $font-size-base * 1.25;
 $h5-font-size: $font-size-base * 1.1;
 $h6-font-size: $font-size-base;
 
-$nav-link-padding-x: .9rem;  // Make sure links fit on the same line on most screens.
-$nav-link-padding-y: 1rem;
-$nav-link-font-family: $font-family-sans-serif;  // Custom variable.
+$nav-link-padding-x: 1.3rem;
+$nav-link-font-family: $font-family-oswald;  // Custom variable.
 $nav-link-font-size: $font-size-base * 1.125;  // Custom variable.
 $nav-link-font-weight: 400;  // Custom variable.
 $navbar-padding-x: 2rem;
-$navbar-padding-y: 20px;
+$navbar-padding-y: 1.125rem;
 $navbar-brand-padding-y: 0;
 $navbar-brand-font-size: 1.875rem;
 $navbar-toggler-padding-y: .5rem;
-$navbar-light-color: #1f1e2c;
-$navbar-light-active-color: #1f1e2c;
+$navbar-light-color: $black;
+$navbar-light-active-color: $black;
 $navbar-light-hover-color: rgba(0,0,0,.7);
 $navbar-light-toggler-border-color: $border-color;
 
@@ -199,7 +197,7 @@ main {
     font-size: $nav-link-font-size;
     font-weight: $nav-link-font-weight;
     text-transform: uppercase;
-    letter-spacing: .05em;
+    letter-spacing: .8px;
     @include media-breakpoint-up(lg) {
       padding: $nav-link-padding-y 0;
       margin-left: $nav-link-padding-x;
@@ -277,11 +275,8 @@ main {
   @include media-breakpoint-up(lg) {
     font-size: $navbar-brand-font-size;
   }
-  font-weight: 800;
-  line-height: 1.5;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  white-space: nowrap;
+  font-weight: $headings-font-weight;
+  line-height: 1.25;
   color: $black;
   @include hover() {
     color: $black;

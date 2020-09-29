@@ -39,15 +39,13 @@ class Config():
     KERKO_WHOOSH_LANGUAGE = 'en'
     KERKO_ZOTERO_LOCALE = 'en-GB'
 
-    HOME_URL = 'https://edtechhub.org/'
-    HOME_TITLE = _("The EdTech Hub")
-    HOME_SUBTITLE = _("Research and Innovation to fulfil the potential of EdTech")
-    ABOUT_URL = 'https://edtechhub.org/about-the-edtech-hub/'
-    BLOG_URL = 'https://edtechhub.org/blog/'
-    CONTACT_URL = 'https://edtechhub.org/jobs/'
+    HOME_URL = 'https://adaptdev.info'
+    HOME_TITLE = _("Adaptive Management in International Development")
+    # HOME_SUBTITLE = _("...")
+    # ABOUT_URL = 'https://example.com'
 
-    NAV_TITLE = _("Evidence Library")
-    KERKO_TITLE = _("Evidence Library – The EdTech Hub")
+    NAV_TITLE = _("Library")
+    KERKO_TITLE = _("Library – Adaptive Management in International Development")
     KERKO_CSL_STYLE = 'apa'
     KERKO_PRINT_ITEM_LINK = True
     KERKO_PRINT_CITATIONS_LINK = True
@@ -61,9 +59,10 @@ class Config():
 
     KERKO_COMPOSER = Composer(
         whoosh_language=KERKO_WHOOSH_LANGUAGE,
-        exclude_default_facets=['facet_tag', 'facet_link', 'facet_item_type'],
+        exclude_default_facets=['facet_tag', 'facet_link'],
         exclude_default_fields=['data'],
-        default_child_include_re='^(_publish|publishPDF)$',
+        default_child_include_re='',
+        # default_child_include_re='^(_publish|publishPDF)$',
         default_child_exclude_re='',
     )
 
@@ -95,90 +94,16 @@ class Config():
         )
     )
 
-    # Featured publisher facet and badge.
-    KERKO_COMPOSER.add_facet(
-        CollectionFacetSpec(
-            key='facet_featured',
-            title=_('Featured publisher'),
-            filter_key='featured',
-            weight=10,
-            collection_key='SGAGGGLK',
-        )
-    )
-    KERKO_COMPOSER.add_field(
-        FieldSpec(
-            key='edtechhub',
-            field_type=BOOLEAN(stored=True),
-            extractor=extractors.InCollectionExtractor(collection_key='BFS3UXT4'),
-        )
-    )
-    KERKO_COMPOSER.add_badge(
-        BadgeSpec(
-            key='edtechhub',
-            field=KERKO_COMPOSER.fields['edtechhub'],
-            activator=lambda field, item: bool(item.get(field.key)),
-            renderer=TemplateStringRenderer(
-                '<span class="fas fa-star" title="{title}"'
-                ' aria-hidden="true"></span>'.format(title=_('Published by The EdTech Hub'))
-            ),
-            weight=0,
-        )
-    )
-
-    # Publication type facet.
-    KERKO_COMPOSER.add_facet(
-        CollectionFacetSpec(
-            key='facet_pubtype',
-            filter_key='pubtype',
-            title=_('Publication type'),
-            weight=20,
-            collection_key='WIWEWXZ8',
-        )
-    )
-
-    # TODO: Audience facet.
-    # KERKO_COMPOSER.add_facet(
-    #     CollectionFacetSpec(
-    #         key='facet_audience',
-    #         filter_key='audience',
-    #         title=_('Audience'),
-    #         weight=30,
-    #         collection_key='WJZFJQ5D',
-    #     )
-    # )
-
     # Themes facet.
     KERKO_COMPOSER.add_facet(
         CollectionFacetSpec(
-            key='facet_themes',
-            filter_key='theme',
-            title=_('Theme'),
+            key='facet_topics',
+            filter_key='topic',
+            title=_('Topic'),
             weight=40,
-            collection_key='23WS6R2T',
+            collection_key='KEIJE5VX',
         )
     )
-
-    # Location facet.
-    KERKO_COMPOSER.add_facet(
-        CollectionFacetSpec(
-            key='facet_location',
-            filter_key='location',
-            title=_('Location'),
-            weight=50,
-            collection_key='PFCKJVIL',
-        )
-    )
-
-    # TODO: Remove this code when certain the facet is no longer wanted.
-    # KERKO_COMPOSER.add_facet(
-    #     CollectionFacetSpec(
-    #         key='facet_references',
-    #         filter_key='ref',
-    #         title=_('Other'),
-    #         weight=60,
-    #         collection_key='GQH9J3MJ',
-    #     )
-    # )
 
 
 class DevelopmentConfig(Config):
@@ -197,7 +122,7 @@ class ProductionConfig(Config):
     ASSETS_DEBUG = env.bool('ASSETS_DEBUG', False)
     ASSETS_AUTO_BUILD = False
     LOGGING_LEVEL = env.str('LOGGING_LEVEL', 'WARNING')
-    GOOGLE_ANALYTICS_ID = 'UA-149862882-2'
+    # TODO: GOOGLE_ANALYTICS_ID = 'UA-'
     LIBSASS_STYLE = 'compressed'
 
 
