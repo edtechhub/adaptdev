@@ -61,8 +61,7 @@ class Config():
         whoosh_language=KERKO_WHOOSH_LANGUAGE,
         exclude_default_facets=['facet_tag', 'facet_link'],
         exclude_default_fields=['data'],
-        default_child_include_re='',
-        # default_child_include_re='^(_publish|publishPDF)$',
+        default_child_include_re='^(_publish|publishPDF)$',
         default_child_exclude_re='',
     )
 
