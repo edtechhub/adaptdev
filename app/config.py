@@ -96,11 +96,11 @@ class Config():
     # Themes facet.
     KERKO_COMPOSER.add_facet(
         CollectionFacetSpec(
-            key='facet_topics',
-            filter_key='topic',
-            title=_('Topic'),
+            key='facet_theme',
+            filter_key='theme',
+            title=_('Theme'),
             weight=40,
-            collection_key='KEIJE5VX',
+            collection_key='Z7A9H37R',
         )
     )
 
