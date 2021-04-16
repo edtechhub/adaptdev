@@ -39,7 +39,7 @@ Making changes to this application requires a Python development environment.
 Once the changes are tested in that environment, they can be pushed to the Git
 repository and deployed on the production server.
 
-[github.com:edtechhub/eth-evidence-library-kerko](https://github.com/edtechhub/eth-evidence-library-kerko)
+[github.com:edtechhub/kerko-docs.edtechhub.org.git](https://github.com/edtechhub/kerko-docs.edtechhub.org)
 is the upstream repository. Changes common to the two sites must be done there
 first, then merged downstream.
 
@@ -209,6 +209,34 @@ for later deployment.
 
 Note: Never manually edit the files in `static/dist/css/` or `static/dist/js/`;
 any change will be overwritten by the build process.
+
+## Managing the translations
+
+The EdTechHubLib application maintains its own translations of Kerko's messages.
+These can be updated from a local install of Kerko. All of the commands below
+should be run from Kerko's directory and specify EdTechHubLib's `translations`
+directory (here indicated by `YOUR_TRANSLATIONS_DIR`).
+
+Create a new PO file (for a new locale) based on the POT file. Replace
+`YOUR_LOCALE` with the appropriate language code, e.g., `en_GB`:
+
+```bash
+python setup.py init_catalog --locale YOUR_LOCALE --output-dir YOUR_TRANSLATIONS_DIR
+```
+
+Update an existing PO file based on the POT file:
+
+```bash
+python setup.py update_catalog --locale YOUR_LOCALE --output-dir YOUR_TRANSLATIONS_DIR
+```
+
+Compile MO files:
+
+```bash
+python setup.py compile_catalog --directory YOUR_TRANSLATIONS_DIR
+```
+
+Note: the compiled MO files are pushed to the repository to ease deployments.
 
 ## Deploying the application
 
