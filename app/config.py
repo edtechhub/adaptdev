@@ -67,7 +67,8 @@ class Config():
     KERKO_COMPOSER = Composer(
         whoosh_language=KERKO_WHOOSH_LANGUAGE,
         exclude_default_facets=['facet_tag', 'facet_link'],
-        exclude_default_fields=['data'],
+        exclude_default_fields=['data', 'text_docs'],
+        exclude_default_scopes=['metadata', 'fulltext'],
         default_child_include_re='^(_publish|publishPDF)$',
         default_child_exclude_re='',
     )
