@@ -48,6 +48,7 @@ class Config():
 
         self.NAV_TITLE = _("Library")
         self.KERKO_TITLE = _("Library – Adaptive Management in International Development")
+        self.KERKO_FULLTEXT_SEARCH = False
         self.KERKO_PRINT_ITEM_LINK = True
         self.KERKO_PRINT_CITATIONS_LINK = True
         self.KERKO_RESULTS_FIELDS = ['id', 'attachments', 'bib', 'coins', 'data', 'preview', 'url']
