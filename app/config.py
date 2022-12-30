@@ -30,7 +30,6 @@ class Config():
 
         # Set other configuration variables.
         self.LOGGING_HANDLER = 'default'
-        self.EXPLAIN_TEMPLATE_LOADING = False
 
         self.LIBSASS_INCLUDES = [
             str(pathlib.Path(__file__).parent.parent / 'static' / 'src' / 'vendor' / 'bootstrap' / 'scss'),
@@ -61,6 +60,8 @@ class Config():
         self.KERKO_TEMPLATE_ITEM = 'app/item.html.jinja2'
         self.KERKO_DOWNLOAD_ATTACHMENT_NEW_WINDOW = True
         self.KERKO_RELATIONS_INITIAL_LIMIT = 50
+        self.KERKO_FEEDS = ['atom']
+        self.KERKO_FEEDS_MAX_DAYS = 0
 
         # CAUTION: The URL's query string must be changed after any edit to the CSL
         # style, otherwise zotero.org might still use a previously cached version of
@@ -75,6 +76,8 @@ class Config():
             default_item_exclude_re=r'^_exclude$',
             default_child_include_re=r'^(_publish|publishPDF)$',
             default_child_exclude_re=r'',
+            facet_initial_limit=6,
+            facet_initial_limit_leeway=2,
         )
 
         # Replace the default 'data' extractor to strip unwanted data from the Extra field.
@@ -159,6 +162,8 @@ class Config():
                 title=_('Theme'),
                 weight=40,
                 collection_key='Z7A9H37R',
+                initial_limit=10,
+                initial_limit_leeway=2,
             )
         )
 
@@ -173,6 +178,7 @@ class DevelopmentConfig(Config):
         self.ASSETS_DEBUG = env.bool('ASSETS_DEBUG', True)  # Don't bundle/minify static assets.
         self.LIBSASS_STYLE = 'expanded'
         self.LOGGING_LEVEL = env.str('LOGGING_LEVEL', 'DEBUG')
+        # self.EXPLAIN_TEMPLATE_LOADING = True
 
 
 class ProductionConfig(Config):
