@@ -59,6 +59,8 @@ class Config():
         self.KERKO_TEMPLATE_SEARCH_ITEM = 'app/search-item.html.jinja2'
         self.KERKO_TEMPLATE_ITEM = 'app/item.html.jinja2'
         self.KERKO_DOWNLOAD_ATTACHMENT_NEW_WINDOW = True
+        self.KERKO_OPEN_IN_ZOTERO_APP = False
+        self.KERKO_OPEN_IN_ZOTERO_WEB = False
         self.KERKO_RELATIONS_INITIAL_LIMIT = 50
         self.KERKO_FEEDS = ['atom']
         self.KERKO_FEEDS_MAX_DAYS = 0

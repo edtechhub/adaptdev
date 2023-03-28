@@ -10,7 +10,7 @@ This application is built in [Python] with the [Flask] framework.
 Some things to know:
 
 - Although the structure and some bits of code are similar to [KerkoApp]
-  (version 0.5), no attempt was made in making this application compatible with
+  (version 0.9), no attempt was made in making this application compatible with
   KerkoApp in any way. Since this application is just a thin layer built over
   Kerko, it is relatively small and can follow its own destiny, separate from
   KerkoApp's.
@@ -37,11 +37,8 @@ Some things to know:
 
 Making changes to this application requires a Python development environment.
 Once the changes are tested in that environment, they can be pushed to the Git
-repository and deployed on the production server.
-
-[github.com:edtechhub/kerko-docs.edtechhub.org.git](https://github.com/edtechhub/kerko-docs.edtechhub.org)
-is the upstream repository. Changes common to the two sites must be done there
-first, then merged downstream.
+repository and deployed on the production server (see the **Deploying the
+application** section).
 
 ### Installing the application locally
 
@@ -170,11 +167,11 @@ to the repository.
 
 Kerko can be upgraded like regular Python packages (see **Upgrading Python
 dependencies**). However, make sure to check [Kerko's changelog][Kerko_changelog].
-The upgrade may require some changes to the application, or a rebuild of the
+The upgrade may require some changes to this application, or a rebuild of the
 search index.
 
 Similarly, some change to Kerko's configuration, especially changes to the
-`KERKO_COMPOSER` variable in the application's `app/config.py`, may have an
+`KERKO_COMPOSER` variable in this application's `app/config.py`, may have an
 impact on the structure of the search index. A rebuild of the search index may
 be necessary after such change.
 
@@ -212,9 +209,9 @@ any change will be overwritten by the build process.
 
 ## Managing the translations
 
-The EdTechHubLib application maintains its own translations of Kerko's messages.
-These can be updated from a local install of Kerko. All of the commands below
-should be run from Kerko's directory and specify EdTechHubLib's `translations`
+This application maintains its own translations of Kerko's messages. These can
+be updated from a local install of Kerko. All of the commands below should be
+run from Kerko's directory and specify the applications's `translations`
 directory (here indicated by `YOUR_TRANSLATIONS_DIR`).
 
 Create a new PO file (for a new locale) based on the POT file. Replace
@@ -301,7 +298,7 @@ The following procedure has to be performed only once.
 
 ### Deploying changes to the existing installation on Gandi
 
-The following procedure is necessary to deploy changes to the application into
+The following procedure is necessary to deploy changes to this application into
 production.
 
 1. Once all required changes have been implemented, built, and tested in the
