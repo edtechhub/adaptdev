@@ -1,7 +1,7 @@
 {% extends 'kerko/layout.html.jinja2' %}
 
 {% block meta_title_inner -%}
-    {%- if title %}{{ title|striptags|escape }} – {% endif %}{{ config.KERKO_TITLE|striptags|escape -}}
+    {%- if title %}{{ title|striptags|escape }} – {% endif %}{{ config.kerko.meta.title|striptags|escape -}}
 {% endblock %}
 
 {%- block metas %}
@@ -36,12 +36,11 @@
                 <div id="navbar-content" class="collapse navbar-collapse">
                     <ul class="navbar-nav justify-content-end">
                         {%- block navbar_items %}
-                            {# <li class="nav-item">
-                                <a class="nav-link" href="{{ config.ABOUT_URL }}">{{ _('About') }}</a>
-                            </li> #}
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url_for('kerko.search') }}" aria-current="true">{{ config.NAV_TITLE }}</a>
-                            </li>
+                            {% for item in config.kerko_composer.link_groups.navbar.get_ordered_links() %}
+                                <li class="nav-item {% if item.is_active(request) %}active{% endif %}">
+                                    <a class="nav-link" href="{{ item.url }}" {% if item.new_window %}target="_blank"{% endif %}>{{ item.label }}</a>
+                                </li>
+                            {% endfor %}
                         {%- endblock navbar_items %}
                     </ul>
                 </div>

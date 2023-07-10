@@ -1,4 +1,3 @@
--r base.txt
-Flask-Assets
-kerko[dev,tests] @ git+https://github.com/whiskyechobravo/kerko.git@3df10d198b5d2d8b19c9b0e0cab223e334a7bd55
+-r run.txt
+kerko[dev,tests] @ git+https://github.com/whiskyechobravo/kerko.git@ad4193ee3c76aa3d7f267c7e04ca99fde4d75617
 safety
