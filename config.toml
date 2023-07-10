@@ -87,6 +87,11 @@ child_exclude_re = ""
     [kerko.facets.link]
     enabled = false
 
+    [kerko.facets.item_type]
+    enabled = true
+    initial_limit = 6
+    initial_limit_leeway = 2
+
     [kerko.facets.theme]
     enabled = true
     type = "collection"
