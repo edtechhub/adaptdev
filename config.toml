@@ -10,19 +10,15 @@ google_analytics_id = ""
 
 [kerko.link_groups]
 
-    [kerko.link_groups.breadcrumb_base]
+    [[kerko.link_groups.breadcrumb_base]]
+    text = "Library"
+    type = "endpoint"
+    endpoint = "kerko.search"
 
-        [[kerko.link_groups.breadcrumb_base.links]]
-        type = "endpoint"
-        label = "Library"
-        endpoint = "kerko.search"
-
-    [kerko.link_groups.navbar]
-
-        [[kerko.link_groups.navbar.links]]
-        type = "endpoint"
-        label = "Library"
-        endpoint = "kerko.search"
+    [[kerko.link_groups.navbar]]
+    text = "Library"
+    type = "endpoint"
+    endpoint = "kerko.search"
 
 [kerko.features]
 
