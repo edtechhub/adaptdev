@@ -1,0 +1,108 @@
+BABEL_DEFAULT_LOCALE = "en_GB"
+
+HOME_URL = "https://adaptdev.info"
+HOME_TITLE = "Adaptive Management in International Development"
+
+[kerko.meta]
+
+title = "Library – Adaptive Management in International Development"
+google_analytics_id = ""
+
+[kerko.link_groups]
+
+    [[kerko.link_groups.breadcrumb_base]]
+    text = "Library"
+    type = "endpoint"
+    endpoint = "kerko.search"
+
+    [[kerko.link_groups.navbar]]
+    text = "Library"
+    type = "endpoint"
+    endpoint = "kerko.search"
+
+[kerko.features]
+
+download_attachment_new_window = true
+open_in_zotero_app = false
+open_in_zotero_web = false
+print_item = true
+print_results = true
+results_abstracts = true
+results_abstracts_max_length = 500
+results_abstracts_max_length_leeway = 40
+relations_initial_limit = 50
+
+[kerko.search]
+
+fulltext = false
+whoosh_language = "en"
+result_fields = ["id", "attachments", "bib", "coins", "data", "preview", "url"]
+
+[kerko.scopes]
+
+    [kerko.scopes.fulltext]
+    # This scope is irrelevant when fulltext search is disabled.
+    enabled = false
+
+    [kerko.scopes.metadata]
+    # This scope is redundant when fulltext search is disabled.
+    enabled = false
+
+[kerko.search_fields]
+
+    [kerko.search_fields.core.optional.documents]
+    # This field is irrelevant when fulltext search is disabled.
+    enabled = false
+
+[kerko.templates]
+
+layout = "kerkoapp/layout.html.jinja2"
+search = "kerkoapp/search.html.jinja2"
+search_item = "kerkoapp/search-item.html.jinja2"
+item = "kerkoapp/item.html.jinja2"
+
+[kerko.zotero]
+
+locale = "en-GB"
+
+# CAUTION: The URL's query string (after the '?') must be changed after any edit
+# to the CSL style, otherwise zotero.org might still use a previously cached
+# version of the file.
+csl_style = "https://docs.adaptdev.info/static/dist/csl/eth_apa.xml?202012301815"
+
+item_exclude_re = "^_exclude$"
+
+child_include_re = "^(_publish)|(publishPDF)$"
+child_exclude_re = ""
+
+[kerko.facets]
+
+    [kerko.facets.tag]
+    enabled = false
+
+    [kerko.facets.link]
+    enabled = false
+
+    [kerko.facets.item_type]
+    enabled = true
+    initial_limit = 6
+    initial_limit_leeway = 2
+
+    [kerko.facets.theme]
+    enabled = true
+    type = "collection"
+    collection_key = "Z7A9H37R"
+    filter_key = "theme"
+    title = "Theme"
+    weight = 10
+    initial_limit = 10
+    initial_limit_leeway = 2
+
+[kerkoapp.proxy_fix]
+
+enabled = false
+x_for = 1
+x_proto = 1
+x_host = 0
+x_port = 0
+x_prefix = 0
