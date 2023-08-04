@@ -4,4 +4,3 @@ python-dotenv
 webassets>=2.0
 Flask-Assets
 kerko>=1.0
-urllib3<2.0  # 2.0 requires openssl-1.1.1, which is not available on our current host.
